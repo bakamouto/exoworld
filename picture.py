@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 
 
-def make_image(daily, weekly, id):
+def make_image(daily, weekly, _id):
     im = Image.new(mode="RGBA", size=(512, 512), color=(105, 151, 193))
     header_font = ImageFont.truetype("OpenSans-Bold.ttf", 36)
     font = ImageFont.truetype("OpenSans-Regular.ttf", 18)
@@ -30,5 +30,6 @@ def make_image(daily, weekly, id):
     draw.rectangle((10, 410, 502, 440),
                    outline=(0, 0, 0), width=5)
 
-    im.save(f"images/{id}_quest_update.png")
-    return f"images/{id}_quest_update.png"
+    # to differentiate images between users
+    im.save(f"images/{_id}_quest_update.png")
+    return f"images/{_id}_quest_update.png"
