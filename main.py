@@ -15,6 +15,7 @@ TIME = 10
 load_dotenv(find_dotenv())
 
 password = os.environ.get("MONGODB_PWD")
+token = os.environ.get("TOKEN")
 
 # connecting to db
 connection_string = (f"mongodb+srv://bakamouto:{password}@exoworld.38dib1x"
@@ -83,8 +84,7 @@ async def starter(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 if __name__ == '__main__':
-    application = ApplicationBuilder().token(
-        '6409648099:AAF4kYLlcwi6q_Som1BhnO3xBxp70Zc4egM').build()
+    application = ApplicationBuilder().token(token).build()
 
     start_handler = CommandHandler('start', starter)
 
